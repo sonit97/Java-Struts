@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts 
+Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+        <form-bean name="studentForm" type="form.StudentForm" />	
+
+	</form-beans>
+	<action-mappings>
+          <action input="/screenStudent" name="studentForm"
+			path="/screenStudent" scope="request" type="action.StudentAction">
+			<forward name="screenStudent" path="/screenStudent.jsp"/>
+			 <forward name="deleteSuccess" path="/screenStudent.do"/>
+			  <forward name="error" path="/screenStudent.do"/>
+			
+			</action>
+			<action path="/listCity" type="action.ListCityAction"	scope="request"   
+	       	input="/screenStudent.jsp" validate="false">      
+	   		 </action>
+	   		 <action path="/listSystems" type="action.ListSystemAction"	scope="request"   
+	       	input="/screenStudent.jsp" validate="false">      
+	   		 </action>
+	   		 
+
+	</action-mappings>
+	<message-resources parameter="action.ApplicationResources" />
+	
+</struts-config>
